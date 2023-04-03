@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<style>
+
+	h2,input,hr{
+		margin-left: 50px;
+		margin-right: 50px;
+		
+	}
+	#regform, #result {
+		padding: 15px 20px;
+		border-radius: 10px;
+		margin-top: 50px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		background-color: Orange; 
+	}
+	
+	#blueButton, #xbutton{
+		background-color: Blue;
+		color: white;
+	}
+	
+	li{
+		padding: 5px 5px 5px 5px;
+		border-bottom: 1px solid #efefef;
+		margin-right: 20px;
+		font-size: 12px;
+		background-color: lime;
+		list-style-type: none;
+	}
+	
+	#xbutton{
+		 display : none;
+		 float:right;
+		 border: 0;
+	  outline: none;
+	  font-size: 10px;
+	  background: black;
+	  color: white;
+	  padding: 10px;
+	  cursor: pointer;
+	  border-radius: 10px;
+	}
+	
+	
+</style>
+<script>
+	function addItem() {
+		// ul 요소 가져옴
+    	  const list = document.getElementById('todolist');
+    	  // 입력값을 읽어옴.
+    	  const todo = document.getElementById('item');
+    	  // 새로운 li 요소를 생성
+    	  const listitem = document.createElement('li');
+    	  // li 요소에 들어갈 닫기 버튼 생성
+    	  const xbtn = document.createElement('button');
+		
+		  xbtn.id='xbutton';
+
+		  list.onmouseover = function(){
+			xbtn.style.display='block';
+		  }
+    	  // close 버튼에 이벤트 처리
+    	  xbtn.onclick = function(e) {
+    	    // 이벤트가 발생한 li 요소를 구해서 ul 요소에서 제거
+    	    const pnode = e.target.parentNode;
+    	    list.removeChild(pnode);
+    	  }
+    	  // li 요소 구성
+    	  listitem.innerText = todo.value;
+    	  listitem.appendChild(xbtn);
+    	  
+    	  // ul 요소에 li 요소 추가
+    	  list.appendChild(listitem);
+
+    	  // 입력칸 비우기 및 포커스 이동
+    	  todo.value = '';
+    	  todo.focus();
+	}
+</script>
+
+
+<body>
+	<div id="regform">
+		<h2>My ToDo App</h2>
+		<hr>
+		<div id="input-group">
+			<input type="item" name="name"  id="item" size="30" placeholder="할일을 입력하세요..">
+			<button type="button" id="blueButton" onclick="addItem()">할일 추가</button>
+		</div>
+		<hr>
+		<ul id="todolist" ></ul>	
+	</div>	
+		
+</body>
+</html>
