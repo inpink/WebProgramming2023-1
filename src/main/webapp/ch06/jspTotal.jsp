@@ -37,7 +37,7 @@
 	</h3>
 	<ul>
 		<%
-			for (String name : members) { %>
+			for (String name : members) { %>  <%-- out.println없이 이렇게 for문을 잘라서 써줄 수도 있다! --%>
 				<li><%=name %></li>
 		<% } %>
 	</ul>
