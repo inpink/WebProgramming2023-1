@@ -30,6 +30,9 @@
 	</h3>
 	<hr>
 	
+	<h3> 3. include: hello.jsp</h3>
+		<%@ include file="../hello.jsp" %>  <%-- 이렇게 중간에서도 include 할 수 있음. 바로 화면에 뜸--%>
+	
 	<h3> 4.스크립트 (배열 데이터 출력) 
 	</h3>
 	<ul>
